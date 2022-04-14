@@ -1,0 +1,166 @@
+/*** Variables ***/
+
+// Define color variables
+$colors: red, orange, green, blue, purple;
+
+:root {
+  --color-gray: #d1d5da;
+  --color-red: #da3633;
+  --color-orange: #f0883e;
+  --color-green: #3fb950;
+  --color-blue: #388bfd;
+  --color-purple: #8957e5;
+}
+
+
+/*** Base code ***/
+
+// Html styling
+html {  
+  background: var(--color-bg-canvas);
+  transition: 1s;
+  body{
+    margin: 0
+  }
+}
+
+// Position the pen at the center of the screen
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#button{
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.profile-color-modes-illu-group{
+  stroke: var(--color-gray);
+}
+
+.profile-color-modes-illu-frame {
+    opacity: 0;
+}
+
+
+
+
+/*** Light mode ***/
+
+[data-color-mode=light] {
+  --color-bg-canvas: #ffffff;
+  
+  .profile-color-modes-illu-frame:nth-child(8) {
+    animation: profile-light-color-modes-illu-anim-frame-hide 0s .3s forwards;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(10){
+    animation: profile-light-color-modes-illu-anim-frame-show 0s .36s forwards;
+  }
+}
+
+
+
+/*** Dark mode ***/
+
+[data-color-mode=dark]{
+  --color-bg-canvas: #0d1117;
+  
+  .profile-color-modes-illu-frame {
+  animation: profile-color-modes-illu-anim-frame-show .5s forwards,profile-color-modes-illu-anim-frame-hide 0s forwards;
+  }
+  
+ .profile-color-modes-illu-frame:nth-child(8) {
+    animation: profile-color-modes-illu-anim-frame-show 0s forwards;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(9) {
+    animation: profile-dark-color-modes-illu-anim-frame-show .5s forwards,;    
+}
+  
+  .profile-color-modes-illu-frame:first-child {
+    animation-delay: 1.8s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(2) {
+    animation-delay: 1.8s,2.58s;
+}
+  
+ .profile-color-modes-illu-frame:nth-child(3) {
+    animation-delay: 2.58s,2.66s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(4) {
+    animation-delay: 2.66s,2.78s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(5) {
+    animation-delay: 2.78s,2.84s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(6) {
+    animation-delay: 2.84s,3.44s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(7) {
+    animation-delay: 3.44s,3.56s;
+}
+  
+  .profile-color-modes-illu-frame:nth-child(8) {
+    animation-delay: 3.56s;
+}
+
+.profile-color-modes-illu-orange{
+  stroke: var(--color-orange);
+  transition-delay: 0.5s;
+}
+
+.profile-color-modes-illu-red{
+  stroke: var(--color-red);
+  transition-delay: 1s;
+}
+
+.profile-color-modes-illu-purple{
+  stroke: var(--color-purple);
+  transition-delay: 1.5s;
+}
+
+.profile-color-modes-illu-green{
+  stroke: var(--color-green);
+  transition-delay: 2s;
+}
+
+.profile-color-modes-illu-blue{
+  stroke: var(--color-blue);
+  transition-delay: 2.5s;
+}
+}
+
+
+/*** Animation ***/
+
+@keyframes profile-light-color-modes-illu-anim-frame-show {
+  0% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes profile-dark-color-modes-illu-anim-frame-show {
+    0% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}

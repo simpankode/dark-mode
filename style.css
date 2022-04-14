@@ -1,0 +1,201 @@
+/*** Variables ***/
+:root {
+  --color-gray: #d1d5da;
+  --color-red: #da3633;
+  --color-orange: #f0883e;
+  --color-green: #3fb950;
+  --color-blue: #388bfd;
+  --color-purple: #8957e5;
+}
+
+/*** Base code ***/
+html {
+  background: var(--color-bg-canvas);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.profile-color-modes-illu-group {
+  stroke: var(--color-gray);
+}
+
+.profile-color-modes-illu-frame {
+  opacity: 0;
+}
+
+/*** Light mode ***/
+[data-color-mode=light] {
+  --color-bg-canvas: #ffffff;
+}
+
+[data-color-mode=light] .profile-color-modes-illu-frame:nth-child(8) {
+  -webkit-animation: profile-light-color-modes-illu-anim-frame-hide 0s .3s forwards;
+          animation: profile-light-color-modes-illu-anim-frame-hide 0s .3s forwards;
+}
+
+[data-color-mode=light] .profile-color-modes-illu-frame:nth-child(10) {
+  -webkit-animation: profile-light-color-modes-illu-anim-frame-show 0s .36s forwards;
+          animation: profile-light-color-modes-illu-anim-frame-show 0s .36s forwards;
+}
+
+/*** Dark mode ***/
+[data-color-mode=dark] {
+  --color-bg-canvas: #0d1117;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame {
+  -webkit-animation: profile-color-modes-illu-anim-frame-show .5s forwards,profile-color-modes-illu-anim-frame-hide 0s forwards;
+          animation: profile-color-modes-illu-anim-frame-show .5s forwards,profile-color-modes-illu-anim-frame-hide 0s forwards;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(8) {
+  -webkit-animation: profile-color-modes-illu-anim-frame-show 0s forwards;
+          animation: profile-color-modes-illu-anim-frame-show 0s forwards;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(9) {
+  -webkit-animation: profile-dark-color-modes-illu-anim-frame-show 0.5s forwards;
+          animation: profile-dark-color-modes-illu-anim-frame-show 0.5s forwards;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:first-child {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(2) {
+  -webkit-animation-delay: 1.8s,2.58s;
+          animation-delay: 1.8s,2.58s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(3) {
+  -webkit-animation-delay: 2.58s,2.66s;
+          animation-delay: 2.58s,2.66s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(4) {
+  -webkit-animation-delay: 2.66s,2.78s;
+          animation-delay: 2.66s,2.78s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(5) {
+  -webkit-animation-delay: 2.78s,2.84s;
+          animation-delay: 2.78s,2.84s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(6) {
+  -webkit-animation-delay: 2.84s,3.44s;
+          animation-delay: 2.84s,3.44s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(7) {
+  -webkit-animation-delay: 3.44s,3.56s;
+          animation-delay: 3.44s,3.56s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-frame:nth-child(8) {
+  -webkit-animation-delay: 3.56s;
+          animation-delay: 3.56s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-orange {
+  stroke: var(--color-orange);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-red {
+  stroke: var(--color-red);
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-purple {
+  stroke: var(--color-purple);
+  -webkit-transition-delay: 1.5s;
+          transition-delay: 1.5s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-green {
+  stroke: var(--color-green);
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+}
+
+[data-color-mode=dark] .profile-color-modes-illu-blue {
+  stroke: var(--color-blue);
+  -webkit-transition-delay: 2.5s;
+          transition-delay: 2.5s;
+}
+
+/*** Animation ***/
+@-webkit-keyframes profile-light-color-modes-illu-anim-frame-show {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes profile-light-color-modes-illu-anim-frame-show {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes profile-dark-color-modes-illu-anim-frame-show {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes profile-dark-color-modes-illu-anim-frame-show {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */
